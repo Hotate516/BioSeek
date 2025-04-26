@@ -102,8 +102,8 @@ export default function Home() {
     result &&
     ["A", "T", "G", "C"].map((base) => ({
       base,
-      count: result[base],
-    }));
+      count: result[base as "A" | "T" | "G" | "C"], 
+    }))    
 
   return (
     <main className="mt-[60px] min-h-screen bg-gray-950 text-white flex flex-col p-6 gap-6">
