@@ -19,7 +19,7 @@ export default function CountCard({ result }: CountCardProps) {
             key={base}
             className="bg-gray-700 px-6 py-4 rounded-lg text-center"
           >
-            {base}: {result[base]} 回
+            {base}: {result[base as "A" | "T" | "G" | "C"]} 回
           </div>
         ))}
       </div>
