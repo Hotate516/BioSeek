@@ -3,7 +3,6 @@
 import { useState } from "react";
 import InputArea from "@/components/InputArea";
 import CountCard from "@/components/CountCard";
-import GCContentCard from "@/components/GCContentCard";
 import ReverseComplementCard from "@/components/ReverseComplementCard";
 import BaseCountChart from "@/components/BaseCountChart";
 import SummaryCard from "@/components/SummaryCard";
