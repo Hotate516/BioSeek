@@ -66,15 +66,20 @@ const codonTable: { [key: string]: string } = {
     "TAA": "*", "TAG": "*", "TGA": "*",
   };
   
-  export function translateSequence(seq: string): string {
-    const upperSeq = seq.toUpperCase();
-    let aminoAcidSeq = "";
+  export function translateSequence(sequence: string, frame: number = 0): string {
+    const codonTable: { [key: string]: string } = {
+      ATG: "M", TAA: "*", TAG: "*", TGA: "*",
+      // 他にもコドンテーブル埋まってるよね！（省略）
+    };
   
-    for (let i = 0; i < upperSeq.length - 2; i += 3) {
+    const upperSeq = sequence.toUpperCase();
+    let aaSeq = "";
+  
+    for (let i = frame; i + 2 < upperSeq.length; i += 3) {
       const codon = upperSeq.slice(i, i + 3);
-      aminoAcidSeq += codonTable[codon] || "?"; // 不明なコドンは ? にする
+      aaSeq += codonTable[codon] || "X"; // X = 不明なコドン
     }
   
-    return aminoAcidSeq;
+    return aaSeq;
   }
   
